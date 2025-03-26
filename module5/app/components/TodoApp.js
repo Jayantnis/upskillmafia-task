@@ -1,6 +1,16 @@
 "use client";
 import React, { useState } from "react";
-import { Trash2 } from "lucide-react";
+import {
+  Button,
+  Form,
+  Container,
+  Row,
+  Col,
+  ListGroup,
+  Navbar,
+  Card,
+} from "react-bootstrap";
+import { Trash } from "react-bootstrap-icons";
 
 export default function TodoApp() {
   const [title, setTitle] = useState("");
@@ -18,40 +28,58 @@ export default function TodoApp() {
   };
 
   return (
-    <div className="container mt-4">
-      <div className="row">
-        <div className="col-md-8 mx-auto">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="Enter a task..."
-            />
-            <button className="btn btn-primary" onClick={addTodo}>
-              Add
-            </button>
-          </div>
+    <>
+      {/* Navbar */}
+      <Navbar bg="primary" variant="dark" className="mb-4">
+        <Container>
+          <Navbar.Brand>To-Do App</Navbar.Brand>
+        </Container>
+      </Navbar>
 
-          <ul className="list-group">
-            {todos.map((todo, index) => (
-              <li
-                className="list-group-item d-flex justify-content-between align-items-center"
-                key={index}
-              >
-                {todo}
-                <button
-                  className="btn btn-danger btn-sm"
-                  onClick={() => removeTodo(index)}
-                >
-                  <Trash2 size={16} />
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
+      {/* Main Container */}
+      <Container>
+        <Row className="justify-content-md-center">
+          <Col md={8}>
+            {/* Input Form */}
+            <Form className="d-flex gap-2">
+              <Form.Group className="flex-grow-1">
+                <Form.Control
+                  type="text"
+                  placeholder="Enter a task..."
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </Form.Group>
+              <Button variant="success" onClick={addTodo}>
+                Add
+              </Button>
+            </Form>
+
+            {/* To-Do List */}
+            <Card className="mt-4">
+              <Card.Body>
+                <ListGroup>
+                  {todos.map((todo, index) => (
+                    <ListGroup.Item
+                      key={index}
+                      className="d-flex justify-content-between align-items-center"
+                    >
+                      {todo}
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => removeTodo(index)}
+                      >
+                        <Trash size={16} />
+                      </Button>
+                    </ListGroup.Item>
+                  ))}
+                </ListGroup>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 }

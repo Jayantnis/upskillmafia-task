@@ -1,1 +1,0 @@
-Create a to-do app with a title input field and an "Add" button. When a title is entered and the "Add" button is clicked, the app should display the added items.
