@@ -1,50 +1,60 @@
 "use client";
+import React, { useContext, createContext, useState, useEffect } from "react";
+import { Button, Form, InputGroup, ListGroup } from "react-bootstrap";
 
-import React, { useContext, useState } from "react";
-import { TodoContext } from "../TodoContext";
-import { ListGroup, Button, Form } from "react-bootstrap";
+import { Trash, Search } from "react-bootstrap-icons";
+import { TodoContext } from "../context/TodoContext";
 
 const TodoList = () => {
-  const { todos, deleteTodo, clearAll } = useContext(TodoContext);
-  const [search, setSearch] = useState("");
+  const { todos, deleteTodo, clearTodos } = useContext(TodoContext);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  // Filter todos based on search input
   const filteredTodos = todos.filter((todo) =>
-    todo.text.toLowerCase().includes(search.toLowerCase())
+    todo.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div>
-      <Form.Control
-        type="text"
-        placeholder="Search tasks..."
-        className="mb-3"
-        onChange={(e) => setSearch(e.target.value)}
-      />
+      {/* Search Input */}
+      <InputGroup className="mb-3">
+        <InputGroup.Text>
+          <Search />
+        </InputGroup.Text>
+        <Form.Control
+          type="text"
+          placeholder="Search tasks..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </InputGroup>
 
+      {/* Todo List */}
       <ListGroup>
         {filteredTodos.length > 0 ? (
-          filteredTodos.map((todo) => (
+          filteredTodos.map((todo, index) => (
             <ListGroup.Item
-              key={todo.id}
-              className="d-flex justify-content-between"
+              key={index}
+              className="d-flex justify-content-between align-items-center"
             >
-              {todo.text}
+              {todo}
               <Button
                 variant="danger"
                 size="sm"
-                onClick={() => deleteTodo(todo.id)}
+                onClick={() => deleteTodo(index)}
               >
-                Delete
+                <Trash size={16} />
               </Button>
             </ListGroup.Item>
           ))
         ) : (
-          <ListGroup.Item>No tasks found</ListGroup.Item>
+          <ListGroup.Item>No tasks found.</ListGroup.Item>
         )}
       </ListGroup>
 
+      {/* Clear All Button */}
       {todos.length > 0 && (
-        <Button variant="danger" className="mt-3" onClick={clearAll}>
+        <Button className="mt-3 w-100" variant="danger" onClick={clearTodos}>
           Clear All
         </Button>
       )}

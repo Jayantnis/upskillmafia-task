@@ -4,7 +4,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
-import { TodoProvider } from "./TodoContext";
+import { TodoProvider } from "./context/TodoContext";
 
 export default function Home() {
   return (
