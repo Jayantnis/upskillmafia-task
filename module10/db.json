@@ -1,0 +1,40 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "course": "Computer Science",
+      "email": "john@example.com"
+    },
+    {
+      "id": "d18b",
+      "name": "JayantNishad Jayant Nishad",
+      "course": "ad",
+      "email": "jayantnishad34@gmail.com"
+    },
+    {
+      "id": "fdf7",
+      "name": "JayantNishad Jayant Nishad",
+      "course": "adf",
+      "email": "jayantnishad34@gmail.com"
+    },
+    {
+      "id": "4a2d",
+      "name": "JayantNishad",
+      "course": "asdf",
+      "email": "jayantnishad34@gmail.com"
+    },
+    {
+      "id": "fc46",
+      "name": "adf",
+      "course": "333asdf",
+      "email": "admin@volt.com"
+    },
+    {
+      "id": "8406",
+      "name": "Jayant Nishad",
+      "course": "adf",
+      "email": "jayantnishad34@gmail.com"
+    }
+  ]
+}
