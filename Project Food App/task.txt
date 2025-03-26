@@ -1,17 +1,62 @@
-Functionality:
-The app should have at least three pages:
-Home Page: A simple welcome screen with navigation links to other pages.
-Form Page: A page with a form that validates user inputs.
-About Page: A static page with information about the app.
-Implement form validation to ensure:
-Required fields are filled.
-The email field has a valid email format.
-The password field has at least 8 characters.
-React Router:
-Use React Router to navigate between pages.
-Include a Navbar with links to the Home, Form, and About pages.
-Lazy Loading:
-Use React’s lazy and Suspense to lazy load the Form and About pages.
-Styling:
-Use React Bootstrap for styling.
+Create a multi-page Personal Finance Tracker application to help users manage their finances. The application should allow users to track their income, expenses, and budgets while providing an overview of their financial status.
+
+Pages to Design
+Dashboard
+Content:
+Display an overview of the user's financial status:
+Total Income
+Total Expenses
+Remaining Budget
+Savings
+Include charts/graphs:
+Monthly spending trends (bar chart or line graph).
+Category-wise expense breakdown (pie chart).
+Include key stats like "Top Expense Categories" or "Biggest Expense of the Month."
+Challenge: Research how to display financial data visually using chart libraries (e.g., Chart.js, Recharts).
+
+Add Transaction Page
+Content:
+A form to add new transactions:
+Transaction Type (Income or Expense).
+Amount.
+Category (e.g., Groceries, Salary, Rent).
+Date.
+Description (optional).
+Form validation (e.g., required fields, numerical values).
+Challenge: Research how to dynamically populate a dropdown for categories.
+
+Transaction History
+Content:
+A table displaying all transactions:
+Columns: Date, Category, Amount, Type, Description, and Actions (Edit/Delete).
+Sorting and filtering:
+Filter by date range or category.
+Sort by amount, date, or type.
+Pagination for large datasets.
+Challenge: Students should research how to implement table pagination or infinite scrolling.
+
+Budgets
+Content:
+Allow users to set monthly budgets for different categories (e.g., $500 for Groceries, $100 for Entertainment).
+Display current spending against the budget (progress bars or visual indicators).
+Alerts for overspending in any category.
+Challenge: Research how to calculate percentages dynamically and display progress visually.
+
+Reports Page
+Content:
+Generate detailed reports:
+Monthly financial summaries.
+Year-to-date analysis.
+Comparison of expenses vs. income over time.
+Export reports as PDFs or CSV files (optional).
+Challenge: Include interactive charts (students can research chart libraries or data manipulation tools).
+
+Settings/Profile Page (Optional Bonus)
+Content:
+Allow users to:
+Set a default currency.
+Update profile information (name, email).
+Change notification preferences (e.g., alerts for overspending).
+Challenge: Research how to store user preferences in localStorage or a database.
+
 
